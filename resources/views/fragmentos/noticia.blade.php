@@ -1,0 +1,37 @@
+@extends('template')
+@section('cuerpo')
+<div class = "container">
+
+    <div class = "row">
+        <div class = "card-col-12">
+            <div class = "card-body">
+                <h5 class = "card-title">Administracion de Noticias</h5>
+                <div class = "container">
+                    <a href="{{$base_url}}index.php/admin/noticias/nuevo" class = "btn btn-success col-2">Nuevo</a>
+                </div>
+                <table class = "table">
+                    <thead>
+                        <tr>
+                            <th>Nro</th>
+                            <th>Titulo</th> 
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($noticia as $item)
+                        <tr>
+                            <td>{{$loop -> iteration}}</td>
+                            <td>{{$item -> titulo}}</td>
+                            <td>{{$item -> fecha}}</td>
+                            <td><a href="{{$base_url}}index.php/admin/noticias/modificar/{{$item -> external}}" class = "btn btn-info">Modificar</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>  
+
+</div>
+@endsection
